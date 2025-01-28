@@ -15,3 +15,10 @@
   add_filter('upload_mimes', 'cc_mime_types');
 
 //#### END ####//
+
+
+//############################################### Display error in ajax (ajax error)
+if ( defined( 'XMLRPC_REQUEST' ) || defined( 'REST_REQUEST' ) || defined( 'MS_FILES_REQUEST' ) || ( defined( 'WP_INSTALLING' ) && WP_INSTALLING ) || wp_doing_ajax() || wp_is_json_request() ) {
+    ini_set( 'display_errors', 1 );
+}
+//#### END ####//

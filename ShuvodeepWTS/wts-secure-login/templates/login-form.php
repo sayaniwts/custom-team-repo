@@ -8,6 +8,8 @@
     <label for="captcha">Captcha: What is <?php echo $this->generate_captcha(); ?>?</label>
     <input type="text" name="captcha" id="captcha" required>
 
-    <input type="hidden" name="secure_login_nonce" value="<?php echo wp_create_nonce('secure_login_action'); ?>">
+    <?php do_action('generate_captcha_value');  ?>
+    
+    <?php do_action('secure_login_add_nonce', 'secure_login_action', 'secure_login_nonce');  ?>
     <button type="submit">Login</button>
 </form>

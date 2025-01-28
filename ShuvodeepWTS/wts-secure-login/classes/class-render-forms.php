@@ -2,19 +2,17 @@
 
 class SecureLoginRenderer {
   public function render_login_form() {
+    $template_locate = new SecureLoginPlugin();
+    $template_file = $template_locate->locate_template('login-form.php');
     if (is_user_logged_in()) {
       return '<p>You are already logged in.</p>';
     }
     ob_start();
-    include plugin_dir_path(__FILE__) . '../templates/login-form.html';
+    if (file_exists($template_file)) {
+      include $template_file;
+    } else {
+      echo 'Template not found!';
+    }
     return ob_get_clean();
-  }
-
-  public function generate_captcha() {
-    $num1 = rand(1, 9);
-    $num2 = rand(1, 9);
-    $sum = $num1 + $num2;
-    $_SESSION['secure_login_captcha'] = $sum;
-    return "$num1 + $num2";
   }
 }

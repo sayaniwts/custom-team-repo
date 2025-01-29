@@ -1,5 +1,6 @@
 <?php
-----Auto populate login user details in gravity form field ----
+Auto populate login user details in gravity form field
+======================================================
 
 
 1. Enable Dynamic Population in the Form Fields

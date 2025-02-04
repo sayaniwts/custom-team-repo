@@ -1,15 +1,26 @@
-<form id="secure-login-form" method="post" action="">
-    <label for="username">Username or Email</label>
-    <input type="text" name="username" id="username" required>
+<div class="secure-login-wrapper">
+  <?php do_action('secure_login_display_errors'); ?>
+  <div class="secure-from-wrap">
+    <form id="secure-login-form" method="post" action="">
+      <div class="input-wrapper">
+        <label for="username">Username or Email</label>
+        <input type="text" name="username" id="username" required>
+      </div>
 
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
+      <div class="input-wrapper">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+      </div>
 
-    <label for="captcha">Captcha: What is <?php echo $this->generate_captcha(); ?>?</label>
-    <input type="text" name="captcha" id="captcha" required>
-
-    <?php do_action('generate_captcha_value');  ?>
-    
-    <?php do_action('secure_login_add_nonce', 'secure_login_action', 'secure_login_nonce');  ?>
-    <button type="submit">Login</button>
-</form>
+      <div class="cap-sub-wrapper">
+        <div class="input-wrapper">
+          <?php do_action('generate_captcha_value');  ?>
+        </div>
+        <div class="input-wrapper">      
+          <?php do_action('secure_login_add_nonce', 'secure_login_action', 'secure_login_nonce');  ?>
+          <input type="submit" value="Login">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

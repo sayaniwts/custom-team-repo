@@ -1,0 +1,14 @@
+.secure-from-wrap {
+    width: 60%;
+    margin: 0 auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+.input-wrapper {
+    margin: 20px 0;
+}
+.cap-sub-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
